@@ -39,4 +39,27 @@
       @extend %common-styles;
     }
   }
+  .progress-bar {
+    height: 5px;
+    width: 70%;
+    margin: 3px auto;
+    background-color: $progress-bar-color;
+    border-radius: 15px;
+    cursor: pointer;
+    .fill {
+      background-color: $fill-color;
+      width: 35%;
+      height: 5px;
+      border-radius: 15px;
+    }
+    .handle {
+      width: 8px;
+      height: 8px;
+      background-color: $fill-color;
+      border-radius: 50%;
+      margin-left: -5px;
+      margin-top: -2px;
+      transform: scale(1.5);
+    }
+  }
 }
