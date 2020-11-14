@@ -23,7 +23,7 @@
     #songImg {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+    //   object-fit: cover;
     }
   }
   #songInfo {
@@ -46,7 +46,7 @@
     background-color: $progress-bar-color;
     border-radius: 15px;
     cursor: pointer;
-    .fill {
+    #fill {
       background-color: $fill-color;
       width: 35%;
       height: 5px;

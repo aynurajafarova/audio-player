@@ -18,3 +18,7 @@
     @extend %common-buttons;
   }
 }
+
+.active-btn {
+  color: $active-btn-color;
+}

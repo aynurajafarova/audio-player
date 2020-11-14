@@ -136,7 +136,7 @@ body {
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url("../images/tyler_igor.jpg");
+  background-image: url("/assets/images/back-in-black.jpg");
   background-position: center center;
   background-size: cover;
   filter: blur(10px); }
@@ -170,8 +170,7 @@ body {
     margin: 0 auto; }
     #songCard #songCoverPhoto #songImg {
       width: 100%;
-      height: 100%;
-      object-fit: cover; }
+      height: 100%; }
   #songCard #songInfo {
     box-sizing: border-box;
     padding: 15px; }
@@ -187,7 +186,7 @@ body {
     background-color: #cdd9c2;
     border-radius: 15px;
     cursor: pointer; }
-    #songCard .progress-bar .fill {
+    #songCard .progress-bar #fill {
       background-color: #1db954;
       width: 35%;
       height: 5px;
@@ -216,5 +215,8 @@ body {
 .buttons {
   box-sizing: border-box;
   padding: 15px; }
+
+.active-btn {
+  color: #1db954; }
 
 /*# sourceMappingURL=main.css.map */
