@@ -125,3 +125,8 @@ table {
 body {
   font-family: "Open Sans", sans-serif;
 }
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

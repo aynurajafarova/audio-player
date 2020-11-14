@@ -1,0 +1,17 @@
+#backgroundImg {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: url("../images/tyler_igor.jpg");
+  background-position: center center;
+  background-size: cover;
+  filter: blur(10px);
+  &::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.2;
+  }
+}

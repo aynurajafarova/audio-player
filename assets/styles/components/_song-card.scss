@@ -1,0 +1,42 @@
+%common-styles {
+  text-align: center;
+  margin-bottom: 8px;
+  color: $main-text-color;
+}
+
+#songCard {
+  width: 330px;
+  height: 350px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  position: absolute;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  #songCoverPhoto {
+    width: 100%;
+    height: 55%;
+    margin: 0 auto;
+
+    #songImg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  #songInfo {
+    box-sizing: border-box;
+    padding: 15px;
+    #artistsName {
+      font-size: 18px;
+      font-weight: 700;
+      @extend %common-styles;
+    }
+    #songsName {
+      font-size: 16px;
+      @extend %common-styles;
+    }
+  }
+}
