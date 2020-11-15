@@ -98,6 +98,13 @@ showTotalTime = () => {
   }
 };
 
+playNextSong = () => {
+  currentSong++;
+  currentSong >= songs.length ? (currentSong = 0) : null;
+  playSong();
+  togglePlayPauseBtns();
+};
+
 // progress bar
 song.addEventListener("timeupdate", () => {
   let fill = song.currentTime / song.duration;
@@ -109,6 +116,11 @@ song.addEventListener("timeupdate", () => {
   }
   showCurrentTime();
   showTotalTime();
+
+  // play the next song when the current song is completed
+  if (song.ended) {
+    playNextSong();
+  }
 });
 
 // play/pause btns
@@ -121,12 +133,7 @@ togglePlayPauseBtns = () => {
 };
 
 // next song button
-nextBtn.addEventListener("click", () => {
-  currentSong++;
-  currentSong >= songs.length ? (currentSong = 0) : null;
-  playSong();
-  togglePlayPauseBtns();
-});
+nextBtn.addEventListener("click", playNextSong);
 
 // previous song button
 prevBtn.addEventListener("click", () => {
@@ -163,7 +170,8 @@ volumeDownBtn.addEventListener("click", () => {
 
 // mute volume
 volumeBtn.addEventListener("click", () => {
-  if (volumeBtn.classList.contains("icon-volume-up-solid")) { // song.volume == 1
+  if (volumeBtn.classList.contains("icon-volume-up-solid")) {
+    // song.volume == 1
     song.volume = 0;
     volumeBtn.classList.remove("icon-volume-up-solid");
     volumeBtn.classList.add("icon-volume-mute-solid");
