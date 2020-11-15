@@ -1,10 +1,10 @@
 @font-face {
   font-family: "icomoon";
-  src: url("./icomoon.eot");
-  src: url("./icomoon.eot?o0ei7z#iefix") format("embedded-opentype"),
-    url("./icomoon.ttf?o0ei7z") format("truetype"),
-    url("./icomoon.woff?o0ei7z") format("woff"),
-    url("./icomoon.svg?o0ei7z#icomoon") format("svg");
+  src: url("./icomoon.eot?hcuc4y");
+  src: url("./icomoon.eot?hcuc4y#iefix") format("embedded-opentype"),
+    url("./icomoon.ttf?hcuc4y") format("truetype"),
+    url("./icomoon.woff?hcuc4y") format("woff"),
+    url("./icomoon.svg?hcuc4y#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -26,24 +26,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-backward-solid:before {
+.icon-minus-circle-solid:before {
   content: "\e900";
 }
-.icon-forward-solid:before {
+.icon-plus-circle-solid:before {
   content: "\e901";
 }
-.icon-random-solid:before {
+.icon-redo-solid:before {
   content: "\e902";
 }
-.icon-pause-solid:before {
+.icon-backward-solid:before {
   content: "\e903";
 }
-.icon-play-solid:before {
+.icon-forward-solid:before {
   content: "\e904";
 }
-.icon-volume-mute-solid:before {
+.icon-random-solid:before {
   content: "\e905";
 }
-.icon-volume-up-solid:before {
+.icon-pause-solid:before {
   content: "\e906";
+}
+.icon-play-solid:before {
+  content: "\e907";
+}
+.icon-volume-mute-solid:before {
+  content: "\e908";
+}
+.icon-volume-up-solid:before {
+  content: "\e909";
 }

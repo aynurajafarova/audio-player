@@ -160,7 +160,7 @@ body {
 
 #songCard {
   width: 330px;
-  height: 350px;
+  height: 370px;
   background-color: #ffffff;
   border-radius: 15px;
   position: absolute;
@@ -213,7 +213,10 @@ body {
 .buttons #backward,
 .buttons #play,
 .buttons #forward,
-.buttons #volumeUp {
+.buttons #volume,
+.buttons #repeat,
+.buttons #volumeUp,
+.buttons #volumeDown {
   border: none;
   background: transparent;
   color: #7e9285;
@@ -223,7 +226,18 @@ body {
 
 .buttons {
   box-sizing: border-box;
-  padding: 15px; }
+  padding-top: 10px;
+  padding-bottom: 10px; }
+  .buttons .volume-up-down {
+    height: 5px;
+    width: 45%;
+    background-color: #cdd9c2;
+    border-radius: 15px; }
+    .buttons .volume-up-down #fillVolume {
+      background-color: #1db954;
+      width: 0%;
+      height: 5px;
+      border-radius: 15px; }
 
 .active-btn {
   color: #1db954; }

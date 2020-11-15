@@ -9,13 +9,29 @@
 
 .buttons {
   box-sizing: border-box;
-  padding: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   #random,
   #backward,
   #play,
   #forward,
-  #volumeUp {
+  #volume,
+  #repeat,
+  #volumeUp,
+  #volumeDown {
     @extend %common-buttons;
+  }
+  .volume-up-down {
+    height: 5px;
+    width: 45%;
+    background-color: $progress-bar-color;
+    border-radius: 15px;
+    #fillVolume {
+      background-color: $fill-color;
+      width: 0%;
+      height: 5px;
+      border-radius: 15px;
+    }
   }
 }
 

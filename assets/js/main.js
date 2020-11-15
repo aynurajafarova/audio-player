@@ -44,6 +44,11 @@ let prevBtn = document.getElementById("backward");
 let currentTime = document.getElementById("currentTime");
 let totalTime = document.getElementById("totalTime");
 
+let volumeUpBtn = document.getElementById("volumeUp");
+let volumeDownBtn = document.getElementById("volumeDown");
+let fillVolume = document.getElementById("fillVolume");
+let volumeBtn = document.querySelector(".icon-volume-up-solid");
+
 let song = new Audio();
 let currentSong = 0;
 
@@ -53,6 +58,7 @@ function playSong() {
   artistName.textContent = songs[currentSong].artistName;
   poster.src = songs[currentSong].poster;
   backgroundImg.style.backgroundImage = `url(${songs[currentSong].backgroundImg})`;
+  fillVolume.style.width = song.volume * 100 + "%";
   song.play(); // play the song
 }
 
@@ -95,8 +101,6 @@ showTotalTime = () => {
 // progress bar
 song.addEventListener("timeupdate", () => {
   let fill = song.currentTime / song.duration;
-  //   console.log("song.currentTime + " + song.currentTime);
-  //   console.log("song.duration + " + song.duration);
   fillBar.style.width = fill * 100 + "%";
   if (fillBar.style.width == 100) {
     playBtn.classList.remove("icon-pause-solid");
@@ -130,4 +134,44 @@ prevBtn.addEventListener("click", () => {
   currentSong < 0 ? (currentSong = songs.length) : null;
   playSong();
   togglePlayPauseBtns();
+});
+
+// volume up/down
+toggleVolumeBtn = () => {
+  if (song.volume == 0) {
+    volumeBtn.classList.remove("icon-volume-up-solid");
+    volumeBtn.classList.add("icon-volume-mute-solid");
+  } else if (song.volume > 0) {
+    volumeBtn.classList.remove("icon-volume-mute-solid");
+    volumeBtn.classList.add("icon-volume-up-solid");
+  }
+};
+
+volumeUpBtn.addEventListener("click", () => {
+  if (song.volume < 1) {
+    song.volume += 0.125;
+  }
+  fillVolume.style.width = song.volume * 100 + "%";
+  toggleVolumeBtn();
+});
+
+volumeDownBtn.addEventListener("click", () => {
+  if (song.volume == 1 || song.volume > 0) song.volume -= 0.125;
+  fillVolume.style.width = song.volume * 100 + "%";
+  toggleVolumeBtn();
+});
+
+// mute volume
+volumeBtn.addEventListener("click", () => {
+  if (volumeBtn.classList.contains("icon-volume-up-solid")) { // song.volume == 1
+    song.volume = 0;
+    volumeBtn.classList.remove("icon-volume-up-solid");
+    volumeBtn.classList.add("icon-volume-mute-solid");
+    fillVolume.style.width = 0 + "%";
+  } else {
+    song.volume = 1;
+    volumeBtn.classList.remove("icon-volume-mute-solid");
+    volumeBtn.classList.add("icon-volume-up-solid");
+    fillVolume.style.width = 100 + "%";
+  }
 });
