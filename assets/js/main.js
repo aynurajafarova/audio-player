@@ -71,3 +71,16 @@ playBtn.addEventListener("click", () => {
     playBtn.classList.add("icon-play-solid");
   }
 });
+
+// progress bar
+song.addEventListener("timeupdate", () => {
+  let fill = song.currentTime / song.duration;
+  //   console.log("song.currentTime + " + song.currentTime);
+  //   console.log("song.duration + " + song.duration);
+  fillBar.style.width = fill * 100 + "%";
+  if (fillBar.style.width == 100) {
+    playBtn.classList.remove("icon-pause-solid");
+    playBtn.classList.add("icon-play-solid");
+    fillBar.style.width = 0 + "%";
+  }
+});
