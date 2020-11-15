@@ -67,6 +67,31 @@
       height: 5px;
       border-radius: 15px;
     }
+    #progressBar {
+      background-color: $progress-bar-color;
+    //   width: 100%;
+    width: 60%;
+      height: 4px !important;
+      border-radius: 15px !important;
+      -webkit-appearance: none;
+      z-index: 100;
+      outline: none;
+      position: fixed;
+    //   position: relative;
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 10px;
+        height: 10px;
+        background-color: $fill-color;
+        border-radius: 50%;
+        transform: scale(1);
+        cursor: pointer;
+        outline: none;
+      }
+      &:active::-webkit-slider-thumb {
+        transform: scale(1.2);
+      }
+    }
     .handle {
       width: 8px;
       height: 8px;

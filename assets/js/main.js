@@ -49,6 +49,8 @@ let volumeDownBtn = document.getElementById("volumeDown");
 let fillVolume = document.getElementById("fillVolume");
 let volumeBtn = document.querySelector(".icon-volume-up-solid");
 
+let repeatBtn = document.getElementById("repeat");
+
 let song = new Audio();
 let currentSong = 0;
 
@@ -107,13 +109,13 @@ playNextSong = () => {
 
 // progress bar
 song.addEventListener("timeupdate", () => {
-  let fill = song.currentTime / song.duration;
-  fillBar.style.width = fill * 100 + "%";
-  if (fillBar.style.width == 100) {
-    playBtn.classList.remove("icon-pause-solid");
-    playBtn.classList.add("icon-play-solid");
-    fillBar.style.width = 0 + "%";
-  }
+    let fill = song.currentTime / song.duration;
+    fillBar.style.width = fill * 100 + "%";
+    if (fillBar.style.width == 100) {
+      playBtn.classList.remove("icon-pause-solid");
+      playBtn.classList.add("icon-play-solid");
+      fillBar.style.width = 0 + "%";
+    }
   showCurrentTime();
   showTotalTime();
 
@@ -181,5 +183,16 @@ volumeBtn.addEventListener("click", () => {
     volumeBtn.classList.remove("icon-volume-mute-solid");
     volumeBtn.classList.add("icon-volume-up-solid");
     fillVolume.style.width = 100 + "%";
+  }
+});
+
+// repeat song
+repeatBtn.addEventListener("click", () => {
+  if (song.loop) {
+    song.loop = false;
+    document.querySelector(".icon-redo-solid").classList.remove("active-btn");
+  } else {
+    song.loop = true;
+    document.querySelector(".icon-redo-solid").classList.add("active-btn");
   }
 });

@@ -201,6 +201,26 @@ body {
       width: 0%;
       height: 5px;
       border-radius: 15px; }
+    #songCard .progress-bar #progressBar {
+      background-color: #cdd9c2;
+      width: 60%;
+      height: 4px !important;
+      border-radius: 15px !important;
+      -webkit-appearance: none;
+      z-index: 100;
+      outline: none;
+      position: fixed; }
+      #songCard .progress-bar #progressBar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 10px;
+        height: 10px;
+        background-color: #1db954;
+        border-radius: 50%;
+        transform: scale(1);
+        cursor: pointer;
+        outline: none; }
+      #songCard .progress-bar #progressBar:active::-webkit-slider-thumb {
+        transform: scale(1.2); }
     #songCard .progress-bar .handle {
       width: 8px;
       height: 8px;
@@ -236,7 +256,7 @@ body {
     .buttons .volume-up-down #fillVolume {
       background-color: #1db954;
       width: 0%;
-      height: 5px;
+      height: 4px;
       border-radius: 15px; }
 
 .active-btn {
