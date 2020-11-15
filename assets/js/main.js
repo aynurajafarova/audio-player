@@ -2,31 +2,31 @@
 let songs = [
   {
     artistName: "AC/DC ",
-    songSrc: "/assets/songs/Back-In-Black.mp3",
+    songSrc: "./assets/songs/Back-In-Black.mp3",
     songName: "Back In Black",
-    poster: "/assets/images/back-in-black.jpg",
-    backgroundImg: "/assets/images/back-in-black.jpg",
+    poster: "./assets/images/back-in-black.jpg",
+    backgroundImg: "./assets/images/back-in-black.jpg",
   },
   {
     artistName: "Led Zeppelin",
-    songSrc: "/assets/songs/Whole-Lotta-Love.mp3",
+    songSrc: "./assets/songs/Whole-Lotta-Love.mp3",
     songName: "Whole Lotta Love",
-    poster: "/assets/images/Whole-Lotta-Love.jpg",
-    backgroundImg: "/assets/images/Whole-Lotta-Love.jpg",
+    poster: "./assets/images/Whole-Lotta-Love.jpg",
+    backgroundImg: "./assets/images/Whole-Lotta-Love.jpg",
   },
   {
     artistName: "Irish Coffee",
-    songSrc: "/assets/songs/Irish-Coffee-A-Day-Like-Today.mp3",
+    songSrc: "./assets/songs/Irish-Coffee-A-Day-Like-Today.mp3",
     songName: "A Day Like Today",
-    poster: "/assets/images/Irish-Coffee-A-Day-Like-Today.jpg",
-    backgroundImg: "/assets/images/Irish-Coffee-A-Day-Like-Today.jpg",
+    poster: "./assets/images/Irish-Coffee-A-Day-Like-Today.jpg",
+    backgroundImg: "./assets/images/Irish-Coffee-A-Day-Like-Today.jpg",
   },
   {
     artistName: "Primal Scream",
-    songSrc: "/assets/songs/Primal-Scream-Loaded.mp3",
+    songSrc: "./assets/songs/Primal-Scream-Loaded.mp3",
     songName: "Loaded",
-    poster: "/assets/images/Primal-Scream-Loaded.jpg",
-    backgroundImg: "/assets/images/Primal-Scream-Loaded.jpg",
+    poster: "./assets/images/Primal-Scream-Loaded.jpg",
+    backgroundImg: "./assets/images/Primal-Scream-Loaded.jpg",
   },
 ];
 
@@ -38,6 +38,8 @@ let backgroundImg = document.getElementById("backgroundImg");
 
 let playBtn = document.querySelector(".icon-play-solid");
 let pauseBtn = document.querySelector(".icon-pause-solid");
+let nextBtn = document.getElementById("forward");
+let prevBtn = document.getElementById("backward");
 
 let song = new Audio();
 let currentSong = 0;
@@ -49,11 +51,6 @@ function playSong() {
   poster.src = songs[currentSong].poster;
   backgroundImg.style.backgroundImage = `url(${songs[currentSong].backgroundImg})`;
   song.play(); // play the song
-  if (song.play) {
-    playBtn.classList.remove("icon-play-solid");
-    playBtn.classList.add("icon-pause-solid");
-    playBtn.classList.add("active-btn");
-  }
 }
 
 window.onload = playSong;
@@ -83,4 +80,29 @@ song.addEventListener("timeupdate", () => {
     playBtn.classList.add("icon-play-solid");
     fillBar.style.width = 0 + "%";
   }
+});
+
+// play/pause btns
+togglePlayPauseBtns = () => {
+  if (song.played) {
+    playBtn.classList.remove("icon-play-solid");
+    playBtn.classList.add("icon-pause-solid");
+    playBtn.classList.add("active-btn");
+  }
+};
+
+// next song button
+nextBtn.addEventListener("click", () => {
+  currentSong++;
+  currentSong >= songs.length ? (currentSong = 0) : null;
+  playSong();
+  togglePlayPauseBtns();
+});
+
+// previous song button
+prevBtn.addEventListener("click", () => {
+  currentSong--;
+  currentSong < 0 ? (currentSong = songs.length) : null;
+  playSong();
+  togglePlayPauseBtns();
 });
