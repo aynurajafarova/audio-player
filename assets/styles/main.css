@@ -153,6 +153,11 @@ body {
   margin-bottom: 8px;
   color: #5e5757; }
 
+#songCard .progress-bar #currentTime, #songCard .progress-bar #totalTime {
+  font-size: 10px;
+  position: absolute;
+  margin-top: -3px; }
+
 #songCard {
   width: 330px;
   height: 350px;
@@ -181,11 +186,16 @@ body {
       font-size: 16px; }
   #songCard .progress-bar {
     height: 5px;
-    width: 70%;
+    width: 60%;
     margin: 3px auto;
     background-color: #cdd9c2;
     border-radius: 15px;
+    position: relative;
     cursor: pointer; }
+    #songCard .progress-bar #currentTime {
+      left: -35px; }
+    #songCard .progress-bar #totalTime {
+      right: -35px; }
     #songCard .progress-bar #fill {
       background-color: #1db954;
       width: 0%;

@@ -41,6 +41,9 @@ let pauseBtn = document.querySelector(".icon-pause-solid");
 let nextBtn = document.getElementById("forward");
 let prevBtn = document.getElementById("backward");
 
+let currentTime = document.getElementById("currentTime");
+let totalTime = document.getElementById("totalTime");
+
 let song = new Audio();
 let currentSong = 0;
 
@@ -69,6 +72,26 @@ playBtn.addEventListener("click", () => {
   }
 });
 
+// current time
+showCurrentTime = () => {
+  let min = Math.floor(Math.round(song.currentTime) / 60);
+  min = min < 10 ? "0" + min : min;
+  let sec = Math.round(song.currentTime) % 60;
+  sec = sec < 10 ? "0" + sec : sec;
+  currentTime.textContent = min + ":" + sec;
+};
+
+// total time
+showTotalTime = () => {
+  let min = Math.floor(Math.round(song.duration) / 60);
+  min = min < 10 ? "0" + min : min;
+  let sec = Math.round(song.duration) % 60;
+  sec = sec < 10 ? "0" + sec : sec;
+  if (song.duration) {
+    totalTime.textContent = min + ":" + sec;
+  }
+};
+
 // progress bar
 song.addEventListener("timeupdate", () => {
   let fill = song.currentTime / song.duration;
@@ -80,6 +103,8 @@ song.addEventListener("timeupdate", () => {
     playBtn.classList.add("icon-play-solid");
     fillBar.style.width = 0 + "%";
   }
+  showCurrentTime();
+  showTotalTime();
 });
 
 // play/pause btns
