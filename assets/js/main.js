@@ -152,6 +152,8 @@ nextBtn.addEventListener("click", playNextSong);
 prevBtn.addEventListener("click", () => {
   currentSong--;
   currentSong < 0 ? (currentSong = songs.length) : null;
+  song.src = songs[currentSong].songSrc;
+  progressBar.max = song.duration;
   playSong();
   togglePlayPauseBtns();
 });
