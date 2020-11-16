@@ -51,25 +51,30 @@ let volumeBtn = document.querySelector(".icon-volume-up-solid");
 
 let repeatBtn = document.getElementById("repeat");
 
+let progressBar = document.getElementById("progressBar");
+
+
 let song = new Audio();
 let currentSong = 0;
+progressBar.value = 0;
+// console.log(progressBar);
+song.src = songs[currentSong].songSrc;
 
 function playSong() {
-  song.src = songs[currentSong].songSrc;
+//   console.log(song);
   songName.textContent = songs[currentSong].songName;
   artistName.textContent = songs[currentSong].artistName;
   poster.src = songs[currentSong].poster;
   backgroundImg.style.backgroundImage = `url(${songs[currentSong].backgroundImg})`;
   fillVolume.style.width = song.volume * 100 + "%";
   song.play(); // play the song
+  
 }
-
-window.onload = playSong;
 
 // change the play button icon to the pause button icon
 playBtn.addEventListener("click", () => {
   if (song.paused) {
-    song.play();
+    playSong();
     playBtn.classList.remove("icon-play-solid");
     playBtn.classList.add("icon-pause-solid");
     playBtn.classList.add("active-btn");
@@ -78,6 +83,10 @@ playBtn.addEventListener("click", () => {
     playBtn.classList.remove("icon-pause-solid");
     playBtn.classList.add("icon-play-solid");
   }
+});
+
+song.addEventListener("playing",()=>{
+    progressBar.max= song.duration
 });
 
 // current time
@@ -103,19 +112,21 @@ showTotalTime = () => {
 playNextSong = () => {
   currentSong++;
   currentSong >= songs.length ? (currentSong = 0) : null;
+  song.src = songs[currentSong].songSrc;
+  progressBar.max = song.duration;
   playSong();
   togglePlayPauseBtns();
 };
 
 // progress bar
 song.addEventListener("timeupdate", () => {
-  let fill = song.currentTime / song.duration;
-  fillBar.style.width = fill * 100 + "%";
-  if (fillBar.style.width == 100) {
-    playBtn.classList.remove("icon-pause-solid");
-    playBtn.classList.add("icon-play-solid");
-    fillBar.style.width = 0 + "%";
-  }
+  //   let fill = song.currentTime / song.duration;
+  //   fillBar.style.width = fill * 100 + "%";
+  //   if (fillBar.style.width == 100) {
+  //     playBtn.classList.remove("icon-pause-solid");
+  //     playBtn.classList.add("icon-play-solid");
+  //     fillBar.style.width = 0 + "%";
+  //   }
   showCurrentTime();
   showTotalTime();
 
@@ -212,3 +223,11 @@ randomBtn.addEventListener("click", () => {
   playSong();
   togglePlayPauseBtns();
 });
+
+progressBar.addEventListener("input", () => {
+  song.currentTime = progressBar.value;
+});
+
+setInterval(() => {
+  progressBar.value = song.currentTime;
+}, 500);

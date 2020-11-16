@@ -46,7 +46,7 @@
     }
   }
   .progress-bar {
-    height: 5px;
+    // height: 5px;
     width: 60%;
     margin: 3px auto;
     background-color: $progress-bar-color;
@@ -61,12 +61,12 @@
       @extend %time-styles;
       right: -35px;
     }
-    #fill {
-      background-color: $fill-color;
-      width: 0%;
-      height: 5px;
-      border-radius: 15px;
-    }
+    // #fill {
+    //   background-color: $fill-color;
+    //   width: 0%;
+    //   height: 5px;
+    //   border-radius: 15px;
+    // }
     #progressBar {
       background-color: $progress-bar-color;
     //   width: 100%;
@@ -92,14 +92,14 @@
         transform: scale(1.2);
       }
     }
-    .handle {
-      width: 8px;
-      height: 8px;
-      background-color: $fill-color;
-      border-radius: 50%;
-      //   margin-left: -5px;
-      margin-top: -2px;
-      transform: scale(1.5);
-    }
+    // .handle {
+    //   width: 8px;
+    //   height: 8px;
+    //   background-color: $fill-color;
+    //   border-radius: 50%;
+    //   //   margin-left: -5px;
+    //   margin-top: -2px;
+    //   transform: scale(1.5);
+    // }
   }
 }

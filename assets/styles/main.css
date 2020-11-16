@@ -185,7 +185,6 @@ body {
     #songCard #songInfo #songsName {
       font-size: 16px; }
   #songCard .progress-bar {
-    height: 5px;
     width: 60%;
     margin: 3px auto;
     background-color: #cdd9c2;
@@ -196,11 +195,6 @@ body {
       left: -35px; }
     #songCard .progress-bar #totalTime {
       right: -35px; }
-    #songCard .progress-bar #fill {
-      background-color: #1db954;
-      width: 0%;
-      height: 5px;
-      border-radius: 15px; }
     #songCard .progress-bar #progressBar {
       background-color: #cdd9c2;
       width: 60%;
@@ -221,13 +215,6 @@ body {
         outline: none; }
       #songCard .progress-bar #progressBar:active::-webkit-slider-thumb {
         transform: scale(1.2); }
-    #songCard .progress-bar .handle {
-      width: 8px;
-      height: 8px;
-      background-color: #1db954;
-      border-radius: 50%;
-      margin-top: -2px;
-      transform: scale(1.5); }
 
 .buttons #random,
 .buttons #backward,
