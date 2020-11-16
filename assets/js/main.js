@@ -109,13 +109,13 @@ playNextSong = () => {
 
 // progress bar
 song.addEventListener("timeupdate", () => {
-    let fill = song.currentTime / song.duration;
-    fillBar.style.width = fill * 100 + "%";
-    if (fillBar.style.width == 100) {
-      playBtn.classList.remove("icon-pause-solid");
-      playBtn.classList.add("icon-play-solid");
-      fillBar.style.width = 0 + "%";
-    }
+  let fill = song.currentTime / song.duration;
+  fillBar.style.width = fill * 100 + "%";
+  if (fillBar.style.width == 100) {
+    playBtn.classList.remove("icon-pause-solid");
+    playBtn.classList.add("icon-play-solid");
+    fillBar.style.width = 0 + "%";
+  }
   showCurrentTime();
   showTotalTime();
 
@@ -195,4 +195,20 @@ repeatBtn.addEventListener("click", () => {
     song.loop = true;
     document.querySelector(".icon-redo-solid").classList.add("active-btn");
   }
+});
+
+// shuffle
+let randomBtn = document.getElementById("random");
+
+getRandomNumb = (min, max) => {
+  let num1 = max - min + 1;
+  let num2 = Math.random() * num1;
+  let result = Math.floor(num2) + min;
+  return result;
+};
+randomBtn.addEventListener("click", () => {
+  let randomIndex = getRandomNumb(0, songs.length);
+  currentSong = randomIndex;
+  playSong();
+  togglePlayPauseBtns();
 });
